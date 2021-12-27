@@ -122,6 +122,7 @@
 import AddTodo from '@/components/ToDo-List/AddTodo.vue'
 import RemovedTodo from '@/components/ToDo-List/RemovedTodo.vue'
 import DialogCard from '@/components/DialogCard.vue'
+import { db, app, todos } from '@/plugins/firebase.js'
 export default {
   components: {
     AddTodo,
@@ -150,6 +151,11 @@ export default {
         todo: [(v) => !!v || 'Todo is required'],
       },
     }
+  },
+  mounted() {
+    console.log("db", db.collection)
+    console.log("app", app)
+    console.log("todos", todos)
   },
   computed: {
     todos() {
